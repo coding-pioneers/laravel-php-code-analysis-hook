@@ -13,7 +13,7 @@ Add the repository to your composer.json
 ```
 Add the following line to your composer.json to the require-dev-section
 ```
-"coding-pioneers/laravel-php-code-analysis-hook": "@dev"
+"coding-pioneers/laravel-php-code-analysis-hook": "~1.0"
 ```
 Then run `composer update`
 
