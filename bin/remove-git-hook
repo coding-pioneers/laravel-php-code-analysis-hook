@@ -1,0 +1,9 @@
+#!/bin/bash
+
+HOOK_DIR=$(git rev-parse --show-toplevel)/.git/hooks
+HOOK='pre-commit'
+
+rm $HOOK_DIR/$HOOK
+if [ ! -h $HOOK_DIR/$HOOK.local -a -x $HOOK_DIR/$HOOK.local ]; then
+    mv $HOOK_DIR/$HOOK.local $HOOK_DIR/$HOOK
+fi

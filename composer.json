@@ -20,7 +20,16 @@
     "minimum-stability": "stable",
     "bin": [
         "bin/symlink-git-hooks-to-hub",
+        "bin/remove-git-hook",
         "bin/git-hook-hub",
         "bin/pre-commit"
-    ]
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "vendor/bin/symlink-git-hooks-to-hub"
+        ],
+        "pre-package-uninstall": [
+            "vendor/bin/remove-git-hook"
+        ]
+    }
 }
