@@ -17,7 +17,7 @@
             "homepage": "https://www.coding-pioneers.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "bin": [
         "bin/symlink-git-hooks-to-hub",
         "bin/git-hook-hub",
