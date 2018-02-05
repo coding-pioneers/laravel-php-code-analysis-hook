@@ -23,13 +23,13 @@ vendor/bin/symlink-git-hooks-to-hub
 ```
 Now your source code is being checked before the commit.
 
-##Uninstall
+## Uninstall
 Remove the link to the pre-commit-hook with the following command
 ```
 vendor/bin/remove-git-hook
 ```
 Then remove the following line from your composer.json
 ```
-"coding-pioneers/laravel-php-code-analysis-hook": "@dev"
+"coding-pioneers/laravel-php-code-analysis-hook": "~1.0"
 ```
 Then run `composer update`
