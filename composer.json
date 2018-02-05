@@ -12,6 +12,11 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Matt Patterson",
+            "email": "matt.patterson94@gmail.com",
+            "homepage": "http://seizon.io"
+        },
+        {
             "name": "Dario Peter",
             "email": "dario@coding-pioneers.com",
             "homepage": "https://www.coding-pioneers.com"
