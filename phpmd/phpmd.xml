@@ -39,6 +39,7 @@
     <!-- extending the short variable rule für some common short variables -->
     <rule ref="rulesets/naming.xml">
         <exclude name="ShortVariable"/>
+        <exclude name="ShortMethodName"/>
     </rule>
     <rule ref="rulesets/naming.xml/ShortVariable"
           since="0.2"
@@ -49,6 +50,11 @@
         <properties>
             <property name="minimum" description="Minimum length for a variable, property or parameter name" value="3"/>
             <property name="exceptions" value="id,fp,i,j,k" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/naming.xml/ShortMethodName">
+        <properties>
+            <property name="exceptions" value="up"/>
         </properties>
     </rule>
     <rule ref="rulesets/unusedcode.xml"/>
