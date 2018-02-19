@@ -45,7 +45,7 @@ done
 if [ "$FILES" != "" ]
 then
     echo "Running Code Sniffer..."
-    ${PROJECT}/vendor/bin/phpcbf --standard=PSR1,PSR2 --encoding=utf-8 -n -p $FILES
+    ${PROJECT}/vendor/bin/phpcs --standard=PSR1,PSR2 --encoding=utf-8 -n -p $FILES
     if [ $? != 0 ]
     then
         if [ -n "$STATIC_ANALYSIS_IGNORE_ERRORS" ]
@@ -53,6 +53,8 @@ then
             echo "Code Sniffer found some errors."
         else
             echo "Fix the Code Sniffer errors before commit."
+            echo "Trying to fix errors with phpcbf."
+            ${PROJECT}/vendor/bin/phpcbf --standard=PSR1,PSR2 --encoding=utf-8 -n -p $FILES
             exit 1
         fi
     fi
