@@ -45,7 +45,7 @@ done
 if [ "$FILES" != "" ]
 then
     echo "Running Code Sniffer..."
-    ${PROJECT}/vendor/bin/phpcs --standard=PSR2 --encoding=utf-8 -n -p $FILES
+    ${PROJECT}/vendor/bin/phpcbf --standard=PSR1,PSR2 --encoding=utf-8 -n -p $FILES
     if [ $? != 0 ]
     then
         if [ -n "$STATIC_ANALYSIS_IGNORE_ERRORS" ]
@@ -58,28 +58,28 @@ then
     fi
 fi
 
-echo "Checking PHP Mess Detector..."
+#echo "Checking PHP Mess Detector..."
 
-PHPMD_CONFIG=${PROJECT}/vendor/coding-pioneers/laravel-php-code-analysis-hook/phpmd/phpmd.xml
+#PHPMD_CONFIG=${PROJECT}/vendor/coding-pioneers/laravel-php-code-analysis-hook/phpmd/phpmd.xml
 # CHECK IF USER HAS CUSTOM PHPMD configuration
-if [ -c "${PROJECT}/phpmd.xml" ]
-then
-    PHPMD_CONFIG = ${PROJECT}/phpmd.xml
-fi
+#if [ -c "${PROJECT}/phpmd.xml" ]
+#then
+#    PHPMD_CONFIG = ${PROJECT}/phpmd.xml
+#fi
 
-for FILE in $SFILES
-do
-    ${PROJECT}/vendor/bin/phpmd $PROJECT/$FILE text $PHPMD_CONFIG
-    if [ $? != 0 ]
-    then
-        if [ -n "$STATIC_ANALYSIS_IGNORE_ERRORS" ]
-        then
-            echo "PHP Mess Detector found some errors."
-        else
-            echo "Fix the PHP Mess Detector errors before commit."
-            exit 1    
-        fi
-    fi
-done
+#for FILE in $SFILES
+#do
+#    ${PROJECT}/vendor/bin/phpmd $PROJECT/$FILE text $PHPMD_CONFIG
+#    if [ $? != 0 ]
+#    then
+#        if [ -n "$STATIC_ANALYSIS_IGNORE_ERRORS" ]
+#        then
+#            echo "PHP Mess Detector found some errors."
+#        else
+#            echo "Fix the PHP Mess Detector errors before commit."
+#            exit 1
+#        fi
+#    fi
+#done
 
 exit $?
